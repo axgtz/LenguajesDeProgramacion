@@ -1,22 +1,25 @@
 #|
 Roberto Alejandro Gutierrez Guillen
-2/08/2019
+04/09/2019
 
-Usar ./racket en la terminal para entrar o usar rkt. Desp cargar el programa
-> (load "../LenguajesDeProgramacion/QuadraticFormula.rkt")
+Use $.rkt in the repository where the file is located then use
+$(load "QuadraticFormula.rkt")
+to load the program and to run it use:
+$(quadratic 2 -4 -5)
 |#
 (define (quadratic a b c)
   (if (= a 0)
-      (-(/ c b) );True, special case
-      (begin     ;False, begin allows to put many expressions, combines them
-         (display "Answer 1: ") 
-         (display 
-            (/ (- (- b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a))
-         )
-         (display "\nAnswer 2: ") 
-         (display 
-            (/ (+ (- b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a))
+;True, special case, if a = 0
+      (-(/ c b) )
+;False. "begin" allows to put many expressions, combines them
+      (begin 
+         (display "\nRoots \n\t")
+;Add the items on the list, in this case the 2 possible solutions
+         (list
+           (/ (+ (- b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a))
+           (/ (- (- b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a))
          )
       )
   )
 )
+
