@@ -9,3 +9,7 @@
 .DS_Store
 *.rkt#1#
 *.rkt#2#
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/LenguajesDeProgramacion.iml

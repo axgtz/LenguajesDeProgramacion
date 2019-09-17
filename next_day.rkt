@@ -12,7 +12,7 @@ $(next_day 1 1 1996)
   ;Check day
   (cond
    [ (> 28 (first date)) (list (+ (first date) 1) (second date) (last date))];if days is less than 28 just add one day
-   [ (and (= 28 (first date)) (= 2 (second date))) (if (leap_year (last date))
+   [ (and (= 28 (first date)) (= 2 (second date))) (if (leap_year (last date));28 feb and feb
                                                        (list (+ 1 (first date)) (second date) (last date));true leap, can have 29
                                                        (list 1 (+ 1 (second date)) (last date));false leap
    )]

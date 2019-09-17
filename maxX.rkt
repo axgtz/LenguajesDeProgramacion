@@ -1,0 +1,8 @@
+(define (maximizing x)
+  (let ((input (begin (display "number> ") (read))))
+    (cond ((not (number? input)) (error "needed a number"))
+          ((end? input) x)
+          (else (maximizing (max x input)))
+    )
+  )          
+)
