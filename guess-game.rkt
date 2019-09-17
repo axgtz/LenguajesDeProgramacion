@@ -22,7 +22,7 @@ Game where you guess the lucky number
             [ (= guess randNum) (printf "Congratulations, you won after ~a tries\n" numTries)];true
             [ (> guess randNum) (begin ;Guess is higher than number
                                     (printf "Enter a lower number\n")
-                                    (loopTurn randNum (+ 1 numTries))
+                                    (loopTurn randNum (+ 1 numTries));recursive call
                                 )]
             [ (< guess randNum) (begin ;Guess is lower than number
                                     (printf "Enter a higher number\n")
