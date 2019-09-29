@@ -6,17 +6,17 @@ Find the Prime Numbers less than Number sent
 |#
 (define (primeNums num)
     (cond
-        [(> 2 num) (printf "No prime numbers below this threshold")]
+        [(> 2 num) '()]
         [(= 2 num) '(2)]
         [(= 3 num) '(2 3)]
         [(< 2 num) 
-            (let loop ([maxNum num] [i 3] [result '(2)])
-                (if (< (sqrt maxNum) i)
-                    (if (isPrime? maxNum result)
-                        (loop maxNum (+ i 2) (append result i));True, add to list 
-                        (loop maxNum (+ i 2) result);False, go to next number thats not pair
+            (let loop ([maxNum num] [i 3] [resultList '(2)])
+                (if (>= maxNum i)
+                    (if (isPrime? i resultList)
+                        (loop maxNum (+ i 2) (append resultList (list i)));True, add to list 
+                        (loop maxNum (+ i 2) resultList);False, go to next number thats not pair
                     );true
-                    result;false, its done
+                    resultList;false, its done
                 )
         )]
     )

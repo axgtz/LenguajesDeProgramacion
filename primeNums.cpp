@@ -38,8 +38,6 @@ bool isPrime(int num, list <int> primeRes){
 }
 
 /*
-
-
 (define (isPrime? maxNum list);Recieves a list of primes smaller than the num
     (if (empty? (cdr list))
         #t;Good, exhausted all options of prime numbers
