@@ -1,10 +1,19 @@
 #|
 Roberto Alejandro Gutierrez Guillen
 23/09/2019
-
-Find the Prime Numbers less than Number sent
+https://stackoverflow.com/questions/9625663/calculating-and-printing-the-nth-prime-number#targetText=Starting%20with%20the%20simple%20approximation,n)*e(n)%20.
 |#
-(define (primeNums num)
+(define (nth-prime num)
+    (let loop  ([i (round (* num (+ (log num) (log (log num)))))] [num num])
+        (cond
+            [ (> num (length (prime-less-than i))) (loop (* i 2) num) ]
+            [ (< num (length (prime-less-than i))) (loop (- i 1) num) ]
+            [ (= num (length (prime-less-than i))) (last (prime-less-than i)) ]
+        )
+    )
+)
+
+(define (prime-less-than num)
     (cond
         [(> 2 num) '()]
         [(= 2 num) '(2)]
