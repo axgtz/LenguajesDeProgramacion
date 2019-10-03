@@ -39,3 +39,23 @@ https://stackoverflow.com/questions/9625663/calculating-and-printing-the-nth-pri
         )
     )
 )
+
+(define (prime? num)
+      (cond
+        [(> 2 num) #f]
+        [(= 2 num) #t]
+        [(< 2 num) 
+            (let loop ([maxNum num] [i 3] [resultList '(2)]);Start in 3 a we consider the smaller cases
+                (if (>= maxNum i);Includes the number casue it can be prime
+                    (if (isPrime? i resultList)
+                        (loop maxNum (+ i 2) (append resultList (list i)));True, add to list 
+                        (loop maxNum (+ i 2) resultList);False, go to next number thats not pair
+                    );true
+                    (if (= (last resultList) maxNum)
+                        #t;t
+                        #f;f
+                    )
+                )
+        )]
+    )
+)

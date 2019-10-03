@@ -30,9 +30,9 @@ List Comprehension
     )
 )
 
-;ITerates through 2 list, finishes when first list is over
+;Iterates through 2 list, finishes when first list is over
 (define (parallel names)
-    (for/list
+    (for/list ;changing for* its like a for inside another for, iterates completely through all the lists
         ([name names] [num (in-range 10)])
         (string-append (number->string num) " : Super-" name)
     )
