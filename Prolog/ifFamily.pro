@@ -1,3 +1,4 @@
+% You can use trace to see how the logic works 
 %Facts
 father(goku, gohan).
 father(goku, goten).
@@ -6,6 +7,7 @@ father(bardock, raditz).
 father(vegeta, trunks).
 father(vegeta, bulla).
 father(gohan, pan).
+father(drBrief, bulma).
 mother(videl, pan).
 mother(gine, goku).
 mother(gine, raditz).
@@ -42,13 +44,24 @@ sister(X, Y) :-
     brothers(X,Y),
     female(X).
 
-grandfather(X, Y) :-
-    male(X),
+%having 2 rules writen the same is like having an OR
+%father side
+grandfather(X, Y) :- %X is gandfather of Y
     father(X,Z),
     father(Z,Y).
 
+%mother side
+grandfather(X, Y) :-
+    father(X,Z),
+    mother(Z,Y).
+
+%father side
 grandmother(X, Y) :-
-    female(X),
+    mother(X,Z),
+    father(Z,Y).
+
+%mother side
+grandmother(X, Y) :-
     mother(X,Z),
     mother(Z,Y).
 
