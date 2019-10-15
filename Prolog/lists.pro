@@ -1,8 +1,10 @@
 /* 
 swipl to enter
-to load ['arithmetic.pro'].
+to load ['lists.pro'].
+You can call your function between time(). to tell you execution
 */
-% Last element in the list
+%%%Last
+% Last element in the list - car en scheme
     % Base case, list with one element
 custom_last([H|[]], H). % fact
 
@@ -10,19 +12,43 @@ custom_last([H|[]], H). % fact
 custom_last([_|T],L) :- % _ variable anonima (se usa si no te interesa), T es el resto de la lista
     custom_last(T,L).
 
-% Last element in the list . Recursive with tail
+%%%Length
+%Get length . Recursive with tail
     %Base case, fact
-get_lenght([], L ,L).
+get_length([], L ,L).
 
     %Rules
-get_lenght([_|T], C ,L) :-      % [_|T],pop element from list
+get_length([_|T], C ,L) :-      % [_|T],pop element from list
     C1 is C + 1,
-    get_lenght( T,C1,L).
+    get_length( T,C1,L).
 
-% Last element in the list . Recursive without tail
-get_lenght([], 0).
+%Length of list. Recursive without tail
+get_length([], 0).% Fact, base case
 
     %Rules
-get_lenght([_|T],L) :-  
-    get_lenght(T,L1). %L1 its your return   
+get_length([_|T],L) :-  
+    get_length(T,L1), %L1 its your return   
     L is L1 + 1.
+
+%%%Reverse
+tec_reverse(L,R) :- %L is list to reverse, R is answer
+    reverse_custom(L,R,[]). % [] result so far, R end result
+
+reverse_custom([],R,R). % Base
+
+reverse_custom([H|T], R ,A) :- % A result so far, R final result
+    reverse_custom(T,R,[H|A]). % [H|A]) = append
+
+
+%%%Append 2 lists
+tec_append([],L,L). %Base 
+
+tec_append([H1|T1],L2,[H1|R]) :- %Recursive
+    tec_append(T1,L2,R).
+
+
+%%% Multiply by 2 each element of the list
+double_elements([],[]). %Base
+double_elements([H|T],[X|R]) :-
+    X is H << 1,
+    double_elements(T,R).
