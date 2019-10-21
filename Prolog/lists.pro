@@ -46,7 +46,6 @@ tec_append([],L,L). %Base
 tec_append([H1|T1],L2,[H1|R]) :- %Recursive
     tec_append(T1,L2,R).
 
-
 %%% Multiply by 2 each element of the list
 double_elements([],[]). %Base
 double_elements([H|T],[X|R]) :-

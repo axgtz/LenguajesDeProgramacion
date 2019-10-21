@@ -24,10 +24,9 @@ odd_length(L):-
     %LEN mod 2 =:= 1.
 
 %%% Return element at specified index, I = index to look for, currently is 0
-element_at(0,[H|_],R):- % When cumulative is 0 then is the desired index
-    R = H.
+element_at(0,[R|_],R). % When cumulative is 0 then is the desired index
 
-element_at(C,[_|T],R):- % c = cumulative
+element_at(C,[_|T],R):- % c = cumulative, iterates through the list by removing 1 from the index its looking and popping the elements at the head
     C1 is C - 1,
     element_at(C1,T,R).
 
@@ -41,10 +40,20 @@ is_permutation(L1,L2) :-
 
 %%% Remove contigous doubles 
 %tec_remove_doubles(L,R):- % R no duplicates
- %   sort(L,R).
+ %   sort(L,R). %orders and removes all doubles
 
-tec_remove_doubles([],[]). % Base case
+% Removes all doubles
+tec_remove_doubles2([],[]). % Base case
 
-tec_remove_doubles([H|T],R):- 
+tec_remove_doubles2([H|T],R):- 
     member(H,R),%if member
-    tec_remove_doubles(T, R).
+    tec_remove_doubles2(T, R).
+
+tec_remove_doubles([],[]). % Empty list, ended the list, start recursion back
+
+tec_remove_doubles([H|T], [H|R]) :- %Append Head if not repeated
+    T \= [H|_], %Equivalent to \+ Term1 = Term2.
+    tec_remove_doubles(T, R). %R tail with no duplicates
+
+tec_remove_doubles([X,X|T], L) :- % Matches the head, and head of tail
+    tec_remove_doubles([X|T], L). 
