@@ -9,7 +9,7 @@ tree_height(nil,0).
 tree_height(node(_, LT, RT), ResH) :- % is like max depth
     tree_height(LT, ResLH),
     tree_height(RT, ResRH),
-    ResH is max(ResRH, ResLH) +1 . % return larger
+    ResH is max(ResRH, ResLH) + 1. % return larger
 
 %%% Generate a list of all the elements at the leafs of the tree (nodes without children). Two parameters, the tree and the resulting list
 list_leaves(nil, []). % Base case
@@ -30,9 +30,6 @@ symmetric_tree(node(_,LT,RT)):-
 
 %%%  Used to solve the previous predicate. Compare two trees to see if they have a mirrored structure. Two arguments, both trees
 mirror_tree(nil,nil).   %return true
-
-mirror_tree(nil,node(_,_,_)):- fail.
-mirror_tree(node(_,_,_),nil):- fail.
 
 % PROBLEM IS MIRROR TRREE
 mirror_tree(node(_,LTreeLT,RTreeLT),node(_,LTreeRT,RTreeRT)):-
