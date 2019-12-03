@@ -1,10 +1,13 @@
 # Conway's Game of Life in Racket using Threads
 Monterrey Insitute of Technology and Superior Studies
+
 Santa Fe Campus 
+
 
 Programming Languages Final Project
 
 Christian Aguilar 
+
 Alejandro Gutierrez
 
 02/12/2019
@@ -32,7 +35,9 @@ All other live cells die in the next generation. Similarly, all other dead cells
  ### Prerequisites
 
 Racket
+
 DrRacket
+
 Source code
 
 ### Running the code
@@ -63,7 +68,9 @@ The function game-of-life calls the full program to run in an animated separate 
 
 ### Imported Libraries
 lang racket
+
 (require 2htdp/image 2htdp/universe)
+
 (require racket/async-channel)
 
 ### Functions
@@ -160,3 +167,8 @@ lang racket
 
 ## Iterative or Threads
 To change the mode of the program from threads to iterative or vice versa, you need to change the function call in line 159, “next-gridT” for threads and “next-grid” for iterative.
+
+## References
+ Gardner, Martin (October 1970). "Mathematical Games – The fantastic combinations of John Conway's new solitaire game "life"". Scientific American. 223 (4): 120–123. doi:10.1038/scientificamerican1070-120. ISBN 978-0-89454-001-1. Retrieved November 25, 2019,.
+
+ Flatt, M. (n.d.). The Racket Reference. Retrieved November 25, 2019, from https://docs.racket-lang.org/reference/.
