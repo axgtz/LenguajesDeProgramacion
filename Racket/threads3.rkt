@@ -11,10 +11,12 @@
 (define semaphore-out (make-semaphore 1))
 
 (define (make-thread name)
-    (thread (lambda ()
+    
                 (let loop
-                    ([n 0])
-                    (if (< n 10)
+                ([n 0])
+                (thread (lambda ()  
+                    
+                    (if (< n 3)
                         ;true
                         (begin
                             (sleep(random));random gives back a float between 0 and 1
