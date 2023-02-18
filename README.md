@@ -10,5 +10,3 @@ Santa Fe Campus (CSF) | 2019
 
 * Racket - Lisp - Scheme (Functional Programming)
 * Prolog (Logical)
-
-`
